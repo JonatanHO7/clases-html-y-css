@@ -1,0 +1,459 @@
+/*  
+    los ."nombre de clase"{} sirven para cambiar una clase en especifico
+    en cambio los #"nombre{} de id" sirven para cambiar una id unica e irrepetible,
+    es el nivel mas especifico, aunque se puede hacer mas especifico, pero se buena 
+    practica hacerlo con clases
+*/
+/* h1 span {
+    color: #037bc0;
+} */
+
+/* .navegacion {
+
+}
+
+.enlace {
+    text-transform: uppercase;
+    font-weight: bold;
+    text-decoration: none;
+    color: #037bc0;
+} */
+
+
+/* Modulos, BEM, SMACSS */
+
+/*  MODULOS
+    al trabajar en modulos, se selecciona una clase y se 
+    selecciona cada uno de sus elementos HTML segun sus
+    etiquetas.
+*/
+
+/* esto es para que el width no sea afectado por el padding */
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;  /* 1REM = 10px */
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.6rem;
+    line-height: 1.5;
+}
+
+/* Globales */
+
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+    margin: 0 0 5rem 0;
+}
+
+h1 {
+    font-size: 5rem;
+}
+h2 {
+    font-size: 4;
+}
+h3 {
+    font-size: 3rem;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+.contenedor {
+    max-width: 120rem;
+    margin: 0 auto;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+.btn {
+    background-color: #8cbc00;
+    display: block;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 900;
+    padding: 1rem;
+    transition: background-color .3s ease-out;
+}
+
+.btn:hover {
+    background-color: #769c02;
+}
+
+/* Utilidares */
+.text-center {
+    text-align: center;
+}
+
+/* cuando el color de fondo importa, se usa padding, cuando no, margin */
+
+/* Header y navegación */
+.nombre-sitio {
+    margin-top: 5rem;
+    text-align: center;
+}
+
+.nombre-sitio span {
+    color: #037bc0;
+}
+
+.contenedor-navegacion {
+    border-top: 0.1rem solid #e1e1e1;
+}
+
+.nav-principal {
+    padding: 2rem 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* las imagenes en la parte superior de un sitio se le llama hero */
+.hero {
+    background-image: url(../img/principal.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    height: 55rem;
+}
+
+/* Categorias */
+
+.categorias {
+    padding-top: 5rem;
+}
+
+.categoria a {
+    text-align: center;
+    display: block;
+    padding: 2rem;
+    font-size: 2rem;
+}
+
+.categoria a:hover {
+    background-color: #037bc0;
+    color: #fff;
+    border-bottom-right-radius: 1rem;
+}
+
+.listado-categorias {
+    display: grid;
+    /* es mas recomendable usar fr en grid */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+/* Bloque Nosotros */
+.sobre-nosotros {
+    background-image: linear-gradient( to right, transparent 50%, #037bc0 50%, #037bc0 
+    100%),url(../img/nosotros.jpg);
+    background-position: left center;
+    padding: 10rem 0;
+    background-repeat: no-repeat;
+    background-size: 100%, 90rem;
+    margin-top: 5rem;
+}
+
+.sobre-nosotros-grid {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    column-gap: 8rem;
+}
+
+.texto-nosotros {
+    grid-column: 2 / 3;
+    color: #fff;
+}
+
+/* Listado de productos */
+.contenido-principal {
+    padding-top: 5rem;
+}
+
+.listado-productos {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 2rem;
+}
+
+.producto:nth-child(1) {
+    grid-column-start: 1;
+    grid-column-end: 7;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+}
+
+.producto:nth-child(1) img {
+    height: 43rem;
+    width: 100%;
+    object-fit: cover;
+}
+
+.producto:nth-child(2) {
+    grid-column-start: 1;
+    grid-column-end: 4;
+}
+
+.producto:nth-child(2) img,
+.producto:nth-child(3) img {
+    height: 30rem;
+    width: 100%;
+    object-fit: cover;
+}
+.producto:nth-child(3) {
+    grid-column-start: 4;
+    grid-column-end: 7;
+}
+
+.producto:nth-child(4) {
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+.producto:nth-child(4) img,
+.producto:nth-child(5) img,
+.producto:nth-child(6) img{
+    height: 30rem;
+    width: 100%;
+    object-fit: cover;
+}
+
+.producto:nth-child(5) {
+    grid-column-start: 3;
+    grid-column-end: 5;
+}
+.producto:nth-child(6) {
+    grid-column-start: 5;
+    grid-column-end: 7;
+}
+
+.producto {
+    background-color: #037bc0;
+}
+
+.texto-producto {
+    text-align: center;
+    color: #fff;
+    padding: 2rem;
+}
+
+.texto-producto h3 {
+    margin: 0;
+}
+
+.texto-producto p {
+    margin: 0 0 .5rem 0;
+}
+
+.texto-producto .precio {
+   font-size: 2.8rem;
+   font-weight: 900;
+}
+
+/* Footer */
+
+.site-footer {
+    border-top: 1px solid #e1e1e1;
+    margin-top: 5rem;
+    padding: 5rem;
+}
+
+.site-footer h3 {
+    margin-bottom: .5rem;
+}
+
+.grid-footer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.footer-menu a {
+    display: block;
+}
+
+.copyright {
+    margin-top: 5rem;
+    text-align: center;
+}
+
+/* 
+    border-color: #e1e1e1;
+    border-top-style: solid;
+    border-width: 1px;
+    ========> atajo border
+    border: width | tipo(solid) | color
+
+    padding-top: 50px; 
+    padding-right: 0;
+    padding-bottom: 30px;
+    padding-left: 20px;
+    ========> atajo padding y margin
+    padding: top | right | bottom | left
+    ========> atajo 2 padding y margin  
+    padding: top-bottom | right-left; (se intuye que los otros valores
+    son lo mismo para no repetir codigo)   
+    */
+
+/* Box Model
+
+.sobre-nosotros {
+    background-color: red;
+    width: 200px;
+    padding: 25px;
+} */
+
+/* 
+    Display block 
+    hace que un elemento se coloque por debajo del otro sin
+    importar su tamaño o que contenido tiene.
+
+    Display inline
+    hace que el elemento se coloque a la derecha una vez haya
+    tomado el espacio que requiere.
+
+    Display inline-block
+    permite darle un width, height y margin a un elemento inline
+    algo que no es posible hacer en un elemento inline
+
+    existen los flex y grid que se veran mas adelante
+
+    Flexbox
+    fue diseñado como un modelo unidimensional para crear Layouts
+    los ejes en flexbox son filas(row) o columnas(column)
+
+    por defecto si definimos un display:flex; motorara los elementos
+    de izquierda a derecha (row), o de derecha a izquierda
+    (row-reverse)
+
+    En general flexbox es diseñadoo para alinear elementos en los diseños
+
+    la alineacion de los flexbox son justify-content y align-items
+
+    justify content
+    Si el flex-direction es row, justify-concent sera utilizado para alinear
+    el contenido horizontalmente, centro izquierda o derecha.
+    En cambio si es column, justify-content será itulizado para alinear el
+    contenido verticalmente, ya sea al inicio, centro o al final.
+
+    align-items
+    Si el flex-direction es row, align-items sera utilizado para alinear
+    el contenido verticalmente, centro inicio o al final.
+    En cambio si es column, align-items será itulizado para alinear el
+    contenido horizontalmente, ya sea al centro, izquierda o derecha.
+*/
+/*
+    CSS Grid o CSS Grid Layout
+    permite definir ubicacion, tamaño y distribucion de los elementos
+    un nuestro sito web.
+    flexbox es unidimencional(row o column), pero CSS Grid permite en ambas.
+
+    se habilita colocando: display:Grid
+
+    el flexbox se adapta tomando todo el espacio disponible,
+    en cambio css grid el contenido se agripa dentro de un area definida
+
+    CSS Grid se complementa con flexbox, en algunos casos es mas facil
+    apligar Grid, en otros Flexbox.
+
+    para crear columnas en Grid se utiliza grid-template-columns
+    para crear rows o filas se utiliza grid-template-rows
+    tambien es posible definir un diseño con grid-template-areas
+
+    Terminos en CSS Grid
+    grid line (posiciona en posicion exacta a hijos)
+    grid track (posiciona horizontal o vertical
+    grid cell (cuando se crea un  grid completo con row y areas)
+    grid area (se habilita cuando se usan nombres en grid)
+
+ */
+
+/*
+    Fuentes
+    para añadir otra fuente se puede hacer con la propiedad 
+    @font-face
+
+    @font-face {
+        font-family: nombreFuente;
+        src: url(ubicacion.woff);
+    }
+
+    *es seguro usar fuentes de Google Fonts
+*/
+
+/*
+    Unidades
+    Algunas propiedades de CSS requieren una unidad como son width
+    margin, padding, font-size, etc
+
+    la unidad debe aparecer junto al valor, no puede llevar espacio
+    (ej: 20px)
+
+    existen 2 tipos de unidades:
+     -  unidades absolutas
+        son las exactas, centimetros o pixeles.
+        la desventaja es que actualmente hay computadoras con pantallas
+        de 1080p o 4k.
+     -  unidades relativas
+        toman su valor en base a otro elemento.
+        algunos ejemplos son los em, rem, vh, vw y porcentajes.
+        la ventaja es que se adapta mejor a diferentes resoluciones y densidades
+        de pixeles, lo cual lo hace la mejor opcion para la gran cantidad de
+        dispositivos que utilizan los usuarios al navegar
+        
+    al pensar en pixeles, es mas sencillo debido a que niestra pantalla es en
+    pixeles, ademas los programas como photoshop o Adobe XD los soportan,
+    no escalan muy bien para crear diseños adaptables a todos los dispositivos    
+*/
+
+/* 
+    Formas de escribir Estilos CSS
+    -   Módulos
+    -   BEM
+    -   Utilidades
+    -   SMACSS
+
+    cualquiera de los 4 permite completar un proyecto completo
+
+    *BEM - Block Element Modifier
+        .card{}
+        .card__titulo {}
+        .card__imagen {}
+        .card__boton {}
+        .card__boton--activo {}
+
+    *Utilidades 
+        .text-center{}
+        .color-red-100 {}
+        .bg-blue-200 {}
+        .p-2 {}
+        .m-2 {}
+
+    *Modulos CSS
+        .card{}
+        .card h2 {}
+        .card img {}
+        .card a {}
+
+    *SMACSS
+        en esta parte comparte elementos
+        #header, #article, #footer {
+            width: 960px;
+            margin: auto;
+        }
+        en esta parte uno no comparte los mismo elementos que los otros
+        #article {
+            border: solid #CCC;
+            border-width: 1px 0 0;
+        }    
+*/
+
