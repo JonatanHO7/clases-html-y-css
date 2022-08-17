@@ -31,17 +31,17 @@
 /* esto es para que el width no sea afectado por el padding */
 html {
     box-sizing: border-box;
-    font-size: 62.5%;  /* 1REM = 10px */
+    font-size: 62.5%;
 }
 
-*, *:before, *:after {
+*, *:after, *:before {
     box-sizing: inherit;
 }
 
 body {
     font-family: 'Raleway', sans-serif;
     font-size: 1.6rem;
-    line-height: 1.5;
+    line-height: 1.5; /*interlineado de texto*/
 }
 
 /* Globales */
@@ -55,7 +55,7 @@ h1 {
     font-size: 5rem;
 }
 h2 {
-    font-size: 4;
+    font-size: 4rem;
 }
 h3 {
     font-size: 3rem;
@@ -84,15 +84,21 @@ img {
     font-weight: 900;
     padding: 1rem;
     transition: background-color .3s ease-out;
+    border: none;
 }
 
 .btn:hover {
     background-color: #769c02;
+    cursor: pointer;
 }
 
 /* Utilidares */
 .text-center {
     text-align: center;
+}
+
+.max-width-30 {
+    max-width: 30rem;
 }
 
 /* cuando el color de fondo importa, se usa padding, cuando no, margin */
@@ -159,18 +165,27 @@ img {
     background-position: left center;
     padding: 10rem 0;
     background-repeat: no-repeat;
-    background-size: 100%, 90rem;
+    background-size: 100%, 80rem;
     margin-top: 5rem;
 }
 
 .sobre-nosotros-grid {
-    display: grid;
+    /* Flexbox */
+    display: flex;
+    justify-content: flex-end;
+    /* Grid */
+    /* display: grid;
     grid-template-columns: repeat(2,1fr);
-    column-gap: 8rem;
+    column-gap: 8rem; */
 }
 
 .texto-nosotros {
-    grid-column: 2 / 3;
+    /* Flexbox */
+    flex-basis: 50%; /* indica cuanto porcentaje del ancho maximo se va a ocupar */
+    padding-left: 10rem;
+    /* Grid */
+    /* posiciona de que linea hasta que linea debe ir el elemento */
+    /* grid-column: 2 / 3; */
     color: #fff;
 }
 
@@ -185,6 +200,11 @@ img {
     gap: 2rem;
 }
 
+
+.producto {
+    background-color: #037bc0;
+}
+
 .producto:nth-child(1) {
     grid-column-start: 1;
     grid-column-end: 7;
@@ -196,7 +216,7 @@ img {
     height: 43rem;
     width: 100%;
     object-fit: cover;
-}
+}   
 
 .producto:nth-child(2) {
     grid-column-start: 1;
@@ -236,9 +256,6 @@ img {
     grid-column-end: 7;
 }
 
-.producto {
-    background-color: #037bc0;
-}
 
 .texto-producto {
     text-align: center;
@@ -285,6 +302,116 @@ img {
     margin-top: 5rem;
     text-align: center;
 }
+
+
+/* Nosotros */
+
+.contenido-nosotros{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    column-gap: 4rem;
+}
+
+.informacion-nosotros {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+/*  BLOG  */
+.contenedor-blog {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    column-gap: 4rem;
+}
+
+.entrada {
+    border-bottom: 2px solid #e1e1e1;
+    padding-bottom: 4rem;
+    margin-bottom: 2rem;
+}
+
+.entrada:last-of-type {
+    border: none;
+}
+
+.entrada-meta {
+    display: flex;
+    justify-content: space-between;
+}
+
+.entrada-meta p {
+    font-weight: bold;
+}
+
+.entrada-meta span {
+    color: #037bc0;
+}
+
+.contenido-entrada-blog{
+    width: 60rem;
+    margin: 0 auto;
+}
+
+/* Galeria */
+
+.galeria {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.galeria img {
+    height: 40rem;
+    width: 40rem;
+    object-fit: cover;
+}
+
+/* Formulario */
+
+.formulario {
+    width: 60rem;
+    margin: 0 auto;
+}
+
+.formulario fieldset {
+    border: 1px solid black;
+    margin-bottom: 2rem;
+}
+
+.formulario legend {
+    background-color: #005485;
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 900;
+    padding: 1rem;
+    margin-bottom: 4rem;
+}
+
+.campo {
+    display: flex;
+    margin-bottom: 2rem;
+}
+
+.campo label {
+    flex-basis: 10rem;
+}
+
+.campo input:not([type="radio"]),
+.campo textarea,
+.campo select {
+    flex: 1;
+    border: 1px solid #e1e1e1;
+    padding: 1rem;
+}
+
 
 /* 
     border-color: #e1e1e1;
